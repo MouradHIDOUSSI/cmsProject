@@ -1,4 +1,5 @@
 <?php
+    //show all the posts in home page
     function showAllPosts()
     {
         global $connection;
@@ -46,9 +47,8 @@
             }
         }
     }
-?>
 
-<?php
+    //show all Categories in the side bar
     function showAllCategoriesSidebar()
     {
         global $connection;
@@ -69,4 +69,6 @@
         </div>
     <?php  
     }
+
+    
 ?>
