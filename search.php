@@ -4,7 +4,9 @@
 <?php include "includes/navigation.php"; ?>
 <!-- Page Content -->
 <div class="container">
+
     <div class="row">
+
         <!-- Blog Entries Column -->
         <div class="col-md-8">
             <?php
@@ -44,5 +46,6 @@
 
     </div>
     <!-- /.row -->
+
     <hr>
     <?php include "includes/footer.php"; ?>
