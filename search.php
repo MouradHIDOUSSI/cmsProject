@@ -9,7 +9,7 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
             <?php
-                ShowAllPosts();
+                //ShowAllPosts();
             ?>
         </div>
 
