@@ -14,9 +14,8 @@
 
             $count = mysqli_num_rows($searchQuery);
             if ($count == 0) {
-                echo "No result";
+                echo "No result found";
             } else {
-                echo "Some Result";
                 while ($row = mysqli_fetch_assoc($searchQuery)) {
                     $post_title = $row['post_title'];
                     $post_author = $row['post_author'];
@@ -24,7 +23,7 @@
                     $post_image = $row['post_image'];
                     $post_content = $row['post_content'];
                     //html goes here
-        ?>
+    ?>
                     <h1 class="page-header">
                         Page Heading
                         <small>Secondary Text</small>
@@ -47,6 +46,9 @@
             }
         }
     }
+?>
+
+<?php
 
     //show all Categories in the side bar
     function showAllCategoriesSidebar()
@@ -63,12 +65,24 @@
                     while ($row = mysqli_fetch_assoc($selectAllCategoriesSidebar)) {
                         $cat_title = $row['cat_title'];
                         echo "<li><a href='#'>{$cat_title}</a></li>";
-                    }?>
+                    } ?>
                 </ul>
             </div>
+            <!-- /.col-lg-6 -->
+            <div class="col-lg-6">
+                <ul class="list-unstyled">
+                    <li><a href="#">Category Name</a>
+                    </li>
+                    <li><a href="#">Category Name</a>
+                    </li>
+                    <li><a href="#">Category Name</a>
+                    </li>
+                    <li><a href="#">Category Name</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.col-lg-6 -->
         </div>
-    <?php  
+    <?php
     }
-
-    
 ?>

@@ -24,5 +24,4 @@
     </div>
 
     <?php include "widget.php"; ?>
-
 </div>
