@@ -1,4 +1,4 @@
-<?php include "includes/functions.php"; ?>
+<?php //include "includes/functions.php"; ?>
 <div class="col-md-4">
     <!-- Blog Search Well -->
     <div class="well">

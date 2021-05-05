@@ -1,5 +1,5 @@
 <?php
-    function ShowAllPosts()
+    function showAllPosts()
     {
         global $connection;
         if (isset($_POST['submit'])) {
@@ -23,7 +23,7 @@
                     $post_image = $row['post_image'];
                     $post_content = $row['post_content'];
                     //html goes here
-?>
+    ?>
                     <h1 class="page-header">
                         Page Heading
                         <small>Secondary Text</small>
@@ -47,7 +47,7 @@
         }
     }
 
-    function showAllCategoriesSidebar()
+    /*function showAllCategoriesSidebar()
     {
         global $connection;
         $query = ("select * from categories");
@@ -89,5 +89,5 @@
         <!-- /.row -->
     <?php 
         }
-    }
+    }*/
 ?>
