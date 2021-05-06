@@ -1,8 +1,9 @@
+<?php include "includes/admin_functions.php"; ?>
 <?php include "includes/admin_header.php"; ?>
     <div id="wrapper">
 
         <!-- Navigation -->
-        <?php include "includes/navigation.php"; ?>
+        <?php include "includes/admin_navigation.php"; ?>
 
         <div id="page-wrapper">
 
@@ -17,6 +18,10 @@
                         </h1>
                         <!-- this is our category add form -->
                         <div class= "col-xs-6">
+                            <?php
+                                //this function will add a category to the DB
+                                AddCategoryAdmin();
+                            ?>
                             <form action="" method="post">
                                 <div class="form-group">
                                     <label for="cat_title">Category Title:</label>
@@ -29,20 +34,10 @@
                         </div>
                         <!-- this is our category table next to the form -->
                         <div class= "col-xs-6">
-                            <table class = "table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Category Title</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>base categ</td>
-                                        <td>penis cat</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <?php
+                                //this function shows all categories in the admin dashboard
+                                showAllCategoriesAdmin();
+                            ?>
                         </div>
                     </div>
                 </div>
