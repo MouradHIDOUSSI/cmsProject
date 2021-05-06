@@ -19,8 +19,24 @@
                     </h1>
                     <!-- Page table -->
                     <?php
-                    //this function shows all posts in admin dashboard
-                    showAllPostsAdmin();
+                        if (isset($_GET['source']))
+                        {
+                            $source = $_GET['source'];
+                        }
+                        else
+                        {
+                            $source = '';
+                        }
+                        
+                        switch ($source)
+                        {
+                            case "add_post";
+                                include 'includes/add_post.php';
+                                break;
+                            default;
+                                //this function shows all posts in admin dashboard
+                                showAllPostsAdmin();
+                        }
                     ?>
                 </div>
             </div>
