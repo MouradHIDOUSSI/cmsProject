@@ -21,6 +21,7 @@
                     echo "<td>{$cat_id}</td>";
                     echo "<td>{$cat_title}</td>";
                     echo "<td> <a href='categories.php?delete={$cat_id}'>Delete</a> </td>";
+                    echo "<td> <a href='categories.php?update={$cat_id}'>Edit</a> </td>";
                     echo "</tr>";
                 } ?>
                 </tr>
@@ -28,7 +29,9 @@
         </table>
     <?php
     }
+?>
 
+<?php
     //this function adds a category to DB
     function AddCategoryAdmin()
     {
@@ -50,7 +53,9 @@
             }
         }
     }
+?>
 
+<?php
     //this function deletes a category from DB
     function deleteCategoryAdmin()
     {
@@ -68,13 +73,18 @@
             }
         }
     }
+?>
 
+<?php
     //this function deletes a category from DB
     function updateCategoryAdmin()
     {
         global $connection;
         if (isset($_GET['update'])) {
             $cat_id =  $_GET['update'];
+            if (isset($_POST['submit'])){
+
+            }
             $query = "delete from categories ";
             $query .= "where cat_id = {$cat_id}";
             $result = mysqli_query($connection, $query);
@@ -86,6 +96,4 @@
             }
         }
     }
-
-
 ?>

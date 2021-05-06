@@ -33,11 +33,11 @@
                             </form>
                             <form action="" method="post">
                                 <div class="form-group">
-                                    <label for="cat_title">Category Title:</label>
+                                    <label for="cat_title">Edit Categorie</label>
                                     <input class= "form-control" type="text" name="cat_title">
                                 </div>
                                 <div class="form-group">
-                                    <input class= "btn btn-primary" type="submit" name="submit" value="Add Category">
+                                    <input class= "btn btn-primary" type="submit" name="submit" value="UPDATE">
                                 </div>
                             </form>
                         </div>
