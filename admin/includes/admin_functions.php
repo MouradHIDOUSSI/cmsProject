@@ -151,7 +151,7 @@ function showAllPostsAdmin()
             </tr>
         </thead>
         <tbody>
-        <?php
+            <?php
             global $connection;
             $query = ("select * from posts");
             $selectAllPosts = mysqli_query($connection, $query);
@@ -167,7 +167,7 @@ function showAllPostsAdmin()
                 $post_tags = $row['post_tags'];
                 $post_comment_count = $row['post_comment_count'];
                 $post_status = $row['post_status'];
-                
+
                 echo "<tr>";
                 echo "<td>$post_id</td>";
                 echo "<td>$post_category_id</td>";
@@ -179,11 +179,33 @@ function showAllPostsAdmin()
                 echo "<td>$post_tags</td>";
                 echo "<td>$post_comment_count</td>";
                 echo "<td>$post_status</td>";
+                echo "<td> <a href='./posts.php?delete={$post_id}'>Delete</a> </td>";
                 echo "</tr>";
             }
             ?>
         </tbody>
     </table>
 <?php
+}
+
+function deletePostAdmin()
+{
+    global $connection;
+    if (isset($_GET['delete']))
+    {
+        $post_id =  $_GET['delete'];
+        $query = "delete from posts ";
+        $query .= "where post_id = {$post_id}";
+        $result = mysqli_query($connection, $query);
+        if (!$result)
+        {
+            die("Query Faild: " . mysqli_error($connection));
+        }
+        else
+        {
+            echo "Post Deleted";
+            //header("location: ./posts.php");
+        }
+    }
 }
 ?>

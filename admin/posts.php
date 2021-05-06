@@ -19,6 +19,9 @@
                     </h1>
                     <!-- Page table -->
                     <?php
+                        //this methode delete a post from the admin dashboard
+                        deletePostAdmin();
+                        //displaying deferent pages in the admin dashboard
                         if (isset($_GET['source']))
                         {
                             $source = $_GET['source'];
