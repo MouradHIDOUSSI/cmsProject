@@ -73,8 +73,8 @@
     function updateCategoryAdmin()
     {
         global $connection;
-        if (isset($_GET['delete'])) {
-            $cat_id =  $_GET['delete'];
+        if (isset($_GET['update'])) {
+            $cat_id =  $_GET['update'];
             $query = "delete from categories ";
             $query .= "where cat_id = {$cat_id}";
             $result = mysqli_query($connection, $query);
