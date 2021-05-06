@@ -37,6 +37,7 @@
                             <?php
                                 //this function shows all categories in the admin dashboard
                                 showAllCategoriesAdmin();
+                                deleteCategoryAdmin();
                             ?>
                         </div>
                     </div>

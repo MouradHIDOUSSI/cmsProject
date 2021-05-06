@@ -20,7 +20,7 @@
                             echo "<tr>";
                             echo "<td>{$cat_id}</td>";
                             echo "<td>{$cat_title}</td>";
-                            echo "<td> <a href='categories.php?{$cat_id}'>Delete</a> </td>";
+                            echo "<td> <a href='categories.php?delete={$cat_id}'>Delete</a> </td>";
                             echo "</tr>";
                         } ?>
                     </tr>
@@ -37,10 +37,8 @@
             if ($cat_title == "" || empty($cat_title)){
                 echo "This Field Can't be empty";
             }else{
-                $query = "insert into categories (cat_title)";
-                //in order for the query to be diplayed totlay we gonna split it
-                //.= means concatenate both statements
-                $query = "Values ('$cat_title')";
+                $query = "insert into categories (cat_title) ";
+                $query .= "Values ('$cat_title')";
                 $result = mysqli_query($connection, $query);
 
                 if (!$result) {
@@ -55,20 +53,42 @@
     //this function deletes a category from DB
     function deleteCategoryAdmin(){
         global $connection;
-        if(isset($_GET['cat_id'])){
-            $cat_id =  $_POST['cat_is'];
-            $query = "insert into categories (cat_title)";
-            //in order for the query to be diplayed totlay we gonna split it
-            //.= means concatenate both statements
-            $query = "delete * from categories ";
-            $query .= "where cat_id = '$cat_id'";
+        if(isset($_GET['delete'])){
+            $cat_id =  $_GET['delete'];
+            $query = "delete from categories ";
+            $query .= "where cat_id = {$cat_id}";
             $result = mysqli_query($connection, $query);
             if (!$result) {
-                die("Query Faild" . mysqli_error($connection));
+                die("Query Faild: " . mysqli_error($connection));
             } else {
                 echo "Record Deleted";
+                header("location: categories.php");
             }  
                 
+        }
+    }
+
+    //this function updates a category
+    function updateData()
+    {
+        global $connection;
+        //We can use this: or
+        global $username;
+        global $password;
+        global $id;
+        //we can use this:
+        /*$username = $_POST['username'];
+        $password = $_POST['password'];
+        $id = $_POST['id'];*/
+        $query = "update users set";
+        $query .= " username = '$username',";
+        $query .= " password = '$password'";
+        $query .= " where id = '$id'";
+        $result = mysqli_query($connection, $query);
+        if (!$result) {
+            die("Query Faild" . mysqli_error($connection));
+        } else {
+            echo "Record updated";
         }
     }
 
