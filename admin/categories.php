@@ -20,7 +20,7 @@
                         <div class= "col-xs-6">
                             <?php
                                 //this function will add a category to the DB
-                                AddCategoryAdmin();
+                                AddCategoryAdmin();                             
                             ?>
                             <form action="" method="post">
                                 <div class="form-group">
@@ -34,10 +34,13 @@
                             <form action="" method="post">
                                 <div class="form-group">
                                     <label for="cat_title">Edit Categorie</label>
-                                    <input class= "form-control" type="text" name="cat_title">
+                                    <?php
+                                        //this function updates a categories in the admin dashboard 
+                                        updateCategoryAdmin();   
+                                    ?>                                 
                                 </div>
                                 <div class="form-group">
-                                    <input class= "btn btn-primary" type="submit" name="submit" value="UPDATE">
+                                    <input class= "btn btn-primary" type="submit" name="edit_cat" value="Update Category">
                                 </div>
                             </form>
                         </div>
@@ -46,7 +49,8 @@
                             <?php
                                 //this function shows all categories in the admin dashboard
                                 showAllCategoriesAdmin();
-                                deleteCategoryAdmin();
+                                //this function deletes a categorie in the admin dashboard
+                                deleteCategoryAdmin(); 
                             ?>
                         </div>
                     </div>
