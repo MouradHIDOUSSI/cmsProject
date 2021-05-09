@@ -3,7 +3,7 @@
     {
 
         $post_title = $_POST['post_title'];
-        $post_category_id = $_POST['post_category_id'];
+        $post_category_id = $_POST['post_category'];
         $post_author = $_POST['post_author'];
         $post_status = $_POST['post_status'];
         $post_image = $_FILES['image']['name'];
@@ -12,6 +12,8 @@
         $post_content = $_POST['post_content'];
         $post_date = date('d-m-y');
         $post_comment_count = 4;
+
+        print_r($_POST);
 
         move_uploaded_file($post_image_temp, "../images/$post_image" );
 
@@ -45,8 +47,27 @@
     </div>
 
     <div class="form-group">
-        <label for="post_category">Post Category ID</label>
-        <input type="text" class="form-control" name="post_category_id">
+        <label for="cat_title">Category Title</label> <br>
+        <select name="post_category" id="">
+            <?php
+                $query = ("select * from categories");
+                $selectAllCategories = mysqli_query($connection, $query);
+                if (!$selectAllCategories)
+                {
+                    die("Query Faild: " . mysqli_error($connection));
+                }
+                else
+                {
+                    echo "Record Updated";
+                }
+                while ($row = mysqli_fetch_assoc($selectAllCategories))
+                {
+                    $cat_id = $row['cat_id'];
+                    $cat_title = $row['cat_title'];
+                    echo "<option value='{$cat_id}'>$cat_title</option>";
+                }
+            ?>
+        </select>
     </div>
 
     <div class="form-group">

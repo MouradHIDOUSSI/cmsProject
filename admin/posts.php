@@ -34,8 +34,12 @@
                         switch ($source)
                         {
                             case "add_post";
-                                include 'includes/add_post.php';
-                                break;
+                            include 'includes/add_post.php';
+                            break;
+
+                            case "edit_post";
+                            include 'includes/edit_post.php';
+                            break;
                             default;
                                 //this function shows all posts in admin dashboard
                                 showAllPostsAdmin();
